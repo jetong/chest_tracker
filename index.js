@@ -14,13 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', express.static('public'));
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 0260f73... fixed scope issues of variables used within callbacks
-=======
->>>>>>> 633f89d... latest running version
 app.use('/handleForm', (req, res) => {
   var username = req.body.username;
   var days = req.body.days;

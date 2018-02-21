@@ -1,3 +1,8 @@
+// todo: 
+// send data to mongoDB.  consider using cookies
+// write backend script to update mongo, use GO?
+// write frontend javascript to query mongo
+
 var express = require('express');
 var app = express();
 
@@ -30,6 +35,7 @@ app.use('/handleForm', (req, res) => {
     getId(key);
   });
 
+  // RIOT api call to retrieve id by username
   function getId(key) {
     var url_id = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + username + "/?api_key=" + key;
     getJSON(url_id, function(error, response) {
@@ -38,6 +44,7 @@ app.use('/handleForm', (req, res) => {
     });
   }
 
+  // RIOT api call to retreive champion details by id
   function getChests(id,key) {
     var url_chests = "https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/" + id + "?api_key=" + key;
     getJSON(url_chests, function(error, champs) {
@@ -49,7 +56,16 @@ app.use('/handleForm', (req, res) => {
         }
       });
       res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(username+ " " + days + " " + hours + " " + minutes + " " + total_chests + " " + chests_available);
+      res.write(username + " " + 
+                      id + " " + 
+                    days + " " + 
+                   hours + " " + 
+                 minutes + " " + 
+              Date.now() + " " + 
+            total_chests + " " + 
+        chests_available
+      );
+
       res.end();
     });
   }

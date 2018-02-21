@@ -4,11 +4,13 @@
 // write frontend javascript to query mongo
 
 var express = require('express');
-var app = express();
 var fs = require('fs');
 var getJSON = require('get-json');
 var bodyParser = require('body-parser');
 
+var User = require('user.js');
+
+var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -48,6 +50,7 @@ app.use('/handleForm', (req, res) => {
           total_chests++;
         }
       });
+
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write(username + " " + 
                       id + " " + 
@@ -58,6 +61,26 @@ app.use('/handleForm', (req, res) => {
             total_chests + " " + 
         chests_available
       );
+
+      var newUser = new User ({
+        this.username: username,
+        this.id: id,
+        this.days: days,
+        this.hours: hours,
+        this.minutes: minutes,
+        this.timestamp: Date.now(),
+        this.total_chests: total_chests,
+        this.available_chests: available_chests
+      });
+
+      newUser.save( (err) => {
+        if(err) {
+          res.type('html').status(500);
+          res.send('Error: ' + err);
+        } else {
+          res.render('created', {user: newUser});
+        }
+      }
 
       res.end();
     });

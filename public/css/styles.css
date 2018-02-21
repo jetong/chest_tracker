@@ -1,0 +1,47 @@
+body {
+  background-image:url('/img/akali_vs_baron.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  color:#ffe500;
+  background-color:black;
+  font-size:12pt;
+  font-weight:bold;
+}
+
+a:visited {
+  color:grey;
+}
+
+#frame {
+  border: 30px solid;
+  border-image:url('/img/frame.png') 36 32 21 32 round;
+  /*border-image-source: url(frame.png);
+  border-image-slice:36 32 21 32;
+  border-image-repeat:round;
+  */
+  margin: 0 auto;
+  margin-top:30%;
+  width: 360px;
+}
+
+#login {
+  padding: 20px;
+  opacity:.75;
+  background-color:black;
+}
+
+.inputbox {
+  height:16px;
+  font-size:10pt;
+}
+
+.button {
+  height:25px;
+  width:90px;
+  font-weight:bold;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}

@@ -5,11 +5,11 @@
 
 var express = require('express');
 var app = express();
-
 var fs = require('fs');
 var getJSON = require('get-json');
-
 var bodyParser = require('body-parser');
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', express.static('public'));

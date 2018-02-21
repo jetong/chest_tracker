@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title>LoL Chest Tracker</title>
+    <link rel="stylesheet" href="../css/styles.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    Welcome!
+
+  <br/>
+    <a href="links.html">Other useful links</a>
+	<br/>
+	<a href="http://18.219.84.174/test.html">Test link</a>
+
+	<form action="/handleForm" method="post">
+    <div id="frame">
+      <div id="login">
+        Username: <input type="text" name="username" size=25 class="inputbox">
+        <br/><br/>
+        <div class="grid-container">
+          <div class="grid-item">
+            Next Available Chest:
+          </div>
+          <div class="grid-item">
+            <table class="timer">
+              <tr align="center">
+                <td><input type="text" name="days" size=2 maxlength=1 class="inputbox"></td>
+                <td><input type="text" name="hours" size=2 maxlength=2 class="inputbox"></td>
+                <td><input type="text" name="minutes" size=2 maxlength=2 class="inputbox"></td>
+              </tr>
+              <tr>
+                <td>Days</td>
+                <td>Hours</td>
+                <td>Minutes</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <br/>
+        Current number of available chests:
+        <input type="text" name="chests_available" size=2 maxlength=1 class="inputbox">
+        <br/>
+        <br/>
+        <div align="center">
+          <input type="submit" value="Submit!" class="button">
+        </div>
+      </div>
+    </div>
+  </form>
+  </body>
+</html>

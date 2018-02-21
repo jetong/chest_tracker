@@ -18,6 +18,10 @@ app.use('/', express.static('public'));
 >>>>>>> 633f89d... latest running version
 app.use('/handleForm', (req, res) => {
   var username = req.body.username;
+  var days = req.body.days;
+  var hours = req.body.hours;
+  var minutes = req.body.minutes;
+  var chests_available = req.body.chests_available;
 
   fs.readFile('private/.api_key', function (err, key) {
     if (err) {
@@ -36,10 +40,16 @@ app.use('/handleForm', (req, res) => {
 
   function getChests(id,key) {
     var url_chests = "https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/" + id + "?api_key=" + key;
-    getJSON(url_chests, function(error, response) {
-      //	chest = String(response.chestGranted);
+    getJSON(url_chests, function(error, champs) {
+      // count the number of champions whose chestGranted is true
+      var total_chests = 0;
+      champs.forEach( (champ) => {
+        if(champ.chestGranted == true) {
+          total_chests++;
+        }
+      });
       res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(JSON.stringify(response));
+      res.write(username+ " " + days + " " + hours + " " + minutes + " " + total_chests + " " + chests_available);
       res.end();
     });
   }

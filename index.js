@@ -5,10 +5,6 @@ var getJSON = require('get-json');
 
 app.use('/', express.static('public'));
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0260f7367d8e01b00cc6ace3085cb23f456113c8
 app.use('/handleForm', (req, res) => {
   fs.readFile('private/.api_key', function (err, key) {
     if (err) {

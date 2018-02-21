@@ -5,6 +5,10 @@ var getJSON = require('get-json');
 
 app.use('/', express.static('public'));
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0260f73... fixed scope issues of variables used within callbacks
 app.use('/handleForm', (req, res) => {
   fs.readFile('private/.api_key', function (err, key) {
     if (err) {

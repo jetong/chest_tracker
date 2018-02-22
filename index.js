@@ -12,6 +12,8 @@ var User = require('./user.js');
 
 var app = express();
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', express.static('public'));
@@ -51,6 +53,7 @@ app.use('/handleForm', (req, res) => {
         }
       });
 
+/*
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write(username + " " + 
                       id + " " + 
@@ -61,6 +64,7 @@ app.use('/handleForm', (req, res) => {
             total_chests + " " + 
         available_chests + " "
       );
+*/
 
       var newUser = new User ({
         username: username,
@@ -72,26 +76,24 @@ app.use('/handleForm', (req, res) => {
         total_chests: total_chests,
         available_chests: available_chests,
       });
-
-			res.write(JSON.stringify(newUser));
+			//res.write(JSON.stringify(newUser));
 
       newUser.save( (err) => {
         if(err) {
           res.type('html').status(500);
           res.send('Error: ' + err);
-        } 
-/*
-          else {
-          res.render('created', {user: newUser});
+        } else {
+          res.render('userInfo', {user: newUser});
         }
-*/
       });
 
       res.end();
-    });
-  }
+    }); // getJASON()
+  } // getChests()
 
-});
+}); // app.use handleform
+
+//app.use('/', (req, res) => { res.redirect('/public/index.html'); } );
 
 app.listen(3000, () => {
   console.log('Listening on port 3000');

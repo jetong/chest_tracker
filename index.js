@@ -53,19 +53,6 @@ app.use('/handleForm', (req, res) => {
         }
       });
 
-/*
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(username + " " + 
-                      id + " " + 
-                    days + " " + 
-                   hours + " " + 
-                 minutes + " " + 
-              Date.now() + " " + 
-            total_chests + " " + 
-        available_chests + " "
-      );
-*/
-
       var newUser = new User ({
         username: username,
         id: id,
@@ -76,7 +63,8 @@ app.use('/handleForm', (req, res) => {
         total_chests: total_chests,
         available_chests: available_chests,
       });
-			//res.write(JSON.stringify(newUser));
+
+			console.log(JSON.stringify(newUser));
 
       newUser.save( (err) => {
         if(err) {
@@ -84,16 +72,14 @@ app.use('/handleForm', (req, res) => {
           res.send('Error: ' + err);
         } else {
           res.render('userInfo', {user: newUser});
+          res.end();
         }
       });
 
-      res.end();
     }); // getJASON()
   } // getChests()
 
 }); // app.use handleform
-
-//app.use('/', (req, res) => { res.redirect('/public/index.html'); } );
 
 app.listen(3000, () => {
   console.log('Listening on port 3000');

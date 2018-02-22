@@ -3,6 +3,11 @@
 // write backend script to update mongo, use GO?
 // write frontend javascript to query mongo
 
+// check:
+// validate user input
+// saving to db overwrites existing data
+// vertically align div in css
+
 var express = require('express');
 var fs = require('fs');
 var getJSON = require('get-json');

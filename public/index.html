@@ -17,13 +17,16 @@
 	<form action="/handleForm" method="post">
     <div id="frame">
       <div id="login">
-        Username: <input type="text" name="username" size=25 class="inputbox">
+        Summoner Name: <input type="text" name="username" size=25 class="inputbox">
         <br/><br/>
+
         <div class="grid-container">
+          <!-- left side of grid -->
           <div class="grid-item">
             Next Available Chest:
           </div>
-          <div class="grid-item">
+          <!-- right side of grid -->
+          <div class="grid-item" align="right">
             <table class="timer">
               <tr align="center">
                 <td><input type="text" name="days" size=2 maxlength=1 class="inputbox"></td>
@@ -32,19 +35,20 @@
               </tr>
               <tr>
                 <td>Days</td>
-                <td>Hours</td>
-                <td>Minutes</td>
+                <td>Hrs</td>
+                <td>Mins</td>
               </tr>
             </table>
           </div>
         </div>
+
         <br/>
-        Current number of available chests:
+        Current Number Of Available Chests:
         <input type="text" name="available_chests" size=2 maxlength=1 class="inputbox">
         <br/>
         <br/>
         <div align="center">
-          <input type="submit" value="Submit!" class="button">
+          <input type="submit" value="Submit" class="button">
         </div>
       </div>
     </div>

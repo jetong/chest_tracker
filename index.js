@@ -8,7 +8,7 @@ var fs = require('fs');
 var getJSON = require('get-json');
 var bodyParser = require('body-parser');
 
-var User = require('user.js');
+var User = require('./user.js');
 
 var app = express();
 
@@ -21,7 +21,7 @@ app.use('/handleForm', (req, res) => {
   var days = req.body.days;
   var hours = req.body.hours;
   var minutes = req.body.minutes;
-  var chests_available = req.body.chests_available;
+  var available_chests = req.body.available_chests;
 
   fs.readFile('private/.api_key', function (err, key) {
     if (err) {
@@ -59,28 +59,33 @@ app.use('/handleForm', (req, res) => {
                  minutes + " " + 
               Date.now() + " " + 
             total_chests + " " + 
-        chests_available
+        available_chests + " "
       );
 
       var newUser = new User ({
-        this.username: username,
-        this.id: id,
-        this.days: days,
-        this.hours: hours,
-        this.minutes: minutes,
-        this.timestamp: Date.now(),
-        this.total_chests: total_chests,
-        this.available_chests: available_chests
+        username: username,
+        id: id,
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        timestamp: Date.now(),
+        total_chests: total_chests,
+        available_chests: available_chests,
       });
+
+			res.write(JSON.stringify(newUser));
 
       newUser.save( (err) => {
         if(err) {
           res.type('html').status(500);
           res.send('Error: ' + err);
-        } else {
+        } 
+/*
+          else {
           res.render('created', {user: newUser});
         }
-      }
+*/
+      });
 
       res.end();
     });

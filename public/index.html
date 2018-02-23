@@ -3,11 +3,12 @@
   <head>
     <title>LoL Chest Tracker</title>
     <link rel="stylesheet" href="../css/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/MyFontsWebfontsKit/MyFontsWebfontsKit.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
-    Welcome!
+    League of Legends Chest Tracker
 
   <br/>
     <a href="links.html">Other useful links</a>
@@ -17,21 +18,21 @@
 	<form action="/handleForm" method="post">
     <div id="frame">
       <div id="login">
-        Summoner Name: <input type="text" name="username" size=25 class="inputbox">
+        <span id="name-text">Summoner Name:</span><input type="text" name="username" id="name-input-field">
         <br/><br/>
 
         <div class="grid-container">
           <!-- left side of grid -->
-          <div class="grid-item">
+          <div class="grid-item" id="left-grid">
             Next Available Chest:
           </div>
           <!-- right side of grid -->
-          <div class="grid-item" align="right">
+          <div class="grid-item" id="right-grid">
             <table class="timer">
-              <tr align="center">
-                <td><input type="text" name="days" size=2 maxlength=1 class="inputbox"></td>
-                <td><input type="text" name="hours" size=2 maxlength=2 class="inputbox"></td>
-                <td><input type="text" name="minutes" size=2 maxlength=2 class="inputbox"></td>
+              <tr>
+                <td><input type="text" name="days" class="number-input-field" maxlength=1></td>
+                <td><input type="text" name="hours" class="number-input-field" maxlength=2></td>
+                <td><input type="text" name="minutes" class="number-input-field" maxlength=2></td>
               </tr>
               <tr>
                 <td>Days</td>
@@ -43,8 +44,8 @@
         </div>
 
         <br/>
-        Current Number Of Available Chests:
-        <input type="text" name="available_chests" size=2 maxlength=1 class="inputbox">
+        <span id="available-chests-text">Current Number Of Available Chests:</span>
+          <input type="text" name="available_chests" class="number-input-field" maxlength=1>
         <br/>
         <br/>
         <div align="center">

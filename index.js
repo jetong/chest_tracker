@@ -2,11 +2,13 @@
 // send data to mongoDB.  consider using cookies
 // write backend script to update mongo, use GO?
 // write frontend javascript to query mongo
+// add list of champions for which chests have already been earned
 
 // check:
 // validate user input
 // saving to db overwrites existing data
 // vertically align div in css
+// limit RIOT api calls
 
 var express = require('express');
 var fs = require('fs');

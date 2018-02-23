@@ -6,6 +6,7 @@ body {
   background-color:black;
   font-size:12pt;
   font-weight:bold;
+  font-family:QuadratSerial;
 }
 
 a:visited {
@@ -14,38 +15,66 @@ a:visited {
 
 #frame {
   border: 30px solid;
-  border-image:url('/img/frame.png') 36 32 21 32 round;
+  border-image:url('/img/frame.png') 36 32 20 32 round;
   /*border-image-source: url(frame.png);
   border-image-slice:36 32 21 32;
   border-image-repeat:round;
   */
   margin: 0 auto;
-  margin-top:30%;
-  width: 360px;
+  margin-top:22%;
+  width: 380px;
 }
 
 #login {
-  padding: 20px;
-  opacity:.75;
+  padding: 25px 18px 18px 26px;
+  opacity:.85;
   background-color:black;
 }
 
-.inputbox {
-  height:16px;
-  font-size:10pt;
+#name-text {
+  padding-right:10px;
+}
+
+#available-chests-text {
+  padding-right:12px;
+}
+
+input[type=text] {
+  height:17px;
+  font-size:11pt;
+  text-align:center;
+}
+
+#name-input-field {
+  width:166px;
+  text-align:left;
+  padding-left:5px;
+}
+
+.number-input-field {
+  width:22px;
 }
 
 .button {
-  height:25px;
   width:90px;
-  font-weight:bold;
+  font-size:18px;
+  font-family: times;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: auto auto;
+  padding-top:5px;
+}
+
+#left-grid {
+  padding-top:13px;  /* adjust vertical alignment of text "Next Available Chest" */
+}
+
+tr {
+  text-align:center;
 }
 
 td {
-  padding-left:20px;
+  padding-left:18px;	/* padding between days, hours, minutes */
 }

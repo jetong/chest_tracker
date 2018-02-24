@@ -1,36 +1,37 @@
-// todo: 
-// send data to mongoDB.  consider using cookies
-// write backend script to update mongo, use GO?
-// write frontend javascript to query mongo
-// add list of champions for which chests have already been earned
+// Todo: 
+// Send data to mongoDB.  consider using cookies
+// Write backend script to update mongo, use GO?
+// Write frontend javascript to query mongo
+// Add list of champions for which chests have already been earned
 
-// check:
-// validate user input
-// saving to db overwrites existing data
-// vertically align div in css
-// limit RIOT api calls
+// Check:
+// Validate user input
+// Saving to db overwrites existing data
+// Vertically align div in css
+// Limit RIOT api calls
 
+// 3rd party dependencies
 var express = require('express');
 var fs = require('fs');
 var getJSON = require('get-json');
 var bodyParser = require('body-parser');
 
+// Application models
 var User = require('./user.js');
 
+// Initializations
 var app = express();
-
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(bodyParser.urlencoded({ extended: true }));
-
+// Routing
 app.use('/', express.static('public'));
-
 app.use('/handleForm', (req, res) => {
   var username = req.body.username;
   var days = req.body.days;
   var hours = req.body.hours;
   var minutes = req.body.minutes;
-  var available_chests = req.body.available_chests;
+  var availableChests = req.body.availableChests;
 
   fs.readFile('private/.api_key', function (err, key) {
     if (err) {
@@ -50,13 +51,14 @@ app.use('/handleForm', (req, res) => {
 
   // RIOT api call to retreive champion details by id
   function getChests(id,key) {
-    var url_chests = "https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/" + id + "?api_key=" + key;
+    var url_chests = "https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/" + 
+      id + "?api_key=" + key;
     getJSON(url_chests, function(error, champs) {
       // count the number of champions whose chestGranted is true
-      var total_chests = 0;
+      var totalChests = 0;
       champs.forEach( (champ) => {
         if(champ.chestGranted == true) {
-          total_chests++;
+          totalChests++;
         }
       });
 
@@ -67,13 +69,13 @@ app.use('/handleForm', (req, res) => {
         hours: hours,
         minutes: minutes,
         timestamp: Date.now(),
-        total_chests: total_chests,
-        available_chests: available_chests,
+        totalChests: totalChests,
+        availableChests: availableChests,
       });
 
 			console.log(JSON.stringify(newUser));
 
-      newUser.save( (err) => {
+      newUser.save((err) => {
         if(err) {
           res.type('html').status(500);
           res.send('Error: ' + err);
@@ -83,7 +85,7 @@ app.use('/handleForm', (req, res) => {
         }
       });
 
-    }); // getJASON()
+    }); // getJSON()
   } // getChests()
 
 }); // app.use handleform

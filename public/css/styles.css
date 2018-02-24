@@ -5,7 +5,6 @@ body {
   color:#ffe500;
   background-color:black;
   font-size:12pt;
-  font-weight:bold;
   font-family:QuadratSerial;
 }
 
@@ -58,7 +57,7 @@ input[type=text] {
 .button {
   width:90px;
   font-size:18px;
-  font-family: times;
+  font-family:QuadratSerial;
 }
 
 .grid-container {

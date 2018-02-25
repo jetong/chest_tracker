@@ -44,13 +44,13 @@ input[type=text] {
   text-align:center;
 }
 
-#name-input-field {
+#name-input {
   width:166px;
   text-align:left;
   padding-left:5px;
 }
 
-.number-input-field {
+.number-input {
   width:22px;
 }
 

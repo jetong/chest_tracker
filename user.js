@@ -9,8 +9,8 @@ var userSchema = new Schema({
                hours: String,
              minutes: String,
            timestamp: String,
-        total_chests: String,
-    available_chests: String
+         totalChests: String,
+     availableChests: String
 });
 
 // export this schema as a User class so that other files can create users with this schema.

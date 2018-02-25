@@ -1,4 +1,4 @@
 function validateForm() {
-  var name = $("#username").val();
+  var name = $("#name-input").val();
   alert(name);
 }

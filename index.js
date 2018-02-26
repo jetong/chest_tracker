@@ -16,8 +16,8 @@ var fs = require('fs');
 var getJSON = require('get-json');
 var bodyParser = require('body-parser');
 
-// Application models
-var User = require('./user.js');
+// Application modules
+var User = require('./user.js');	// Mongoose schema class
 
 // Initializations
 var app = express();

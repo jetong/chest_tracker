@@ -13,5 +13,6 @@ var userSchema = new Schema({
      availableChests: String
 });
 
-// export this schema as a User class so that other files can create users with this schema.
+// Export this schema as a User class so that other files can create users with this schema.
+// Mongo collection name becomes 'users', the plural of the name provided.
 module.exports = mongoose.model('User', userSchema);

@@ -2,7 +2,7 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="../js/validateForm.js"></script>
+    <script src="../js/validateForm.js" defer></script>  <!-- defer and ensure DOM finishes loading -->
     <title>LoL Chest Tracker</title>
     <link rel="stylesheet" href="../css/styles.css"/>
     <link rel="stylesheet" type="text/css" href="../css/MyFontsWebfontsKit/MyFontsWebfontsKit.css">
@@ -16,6 +16,18 @@
     <a href="links.html">Other useful links</a>
 	<br/>
 	<a href="http://18.219.84.174/prac1/main.html">Test link</a>
+
+<span id="error-message" class="error-text" hidden>   <!-- hidden on page first load -->
+     Please fix the following errors:</span>
+
+<ul>
+<li id="name-length" class="error-text" hidden>
+    The username must be at least 3 characters long</li>
+<li id="days-hours-minutes" class="error-text" hidden>
+    Valid range: Days (0-6), Hours (0-23), Minutes (0-59)</li>
+<li id="chests" class="error-text" hidden>
+    Valid range (0-4)</li>
+</ul>
 
 	<form action="/handleForm" method="post">
     <div id="frame">
@@ -51,7 +63,7 @@
         <br/>
         <br/>
         <div align="center">
-          <input type="submit" value="Submit" class="button" onclick="validateForm()">
+          <input type="submit" value="Submit" class="button">
         </div>
       </div>
     </div>

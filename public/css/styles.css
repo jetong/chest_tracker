@@ -77,3 +77,13 @@ tr {
 td {
   padding-left:18px;	/* padding between days, hours, minutes */
 }
+
+#errorMessages {
+  text-align:center;
+  margin: auto;
+}
+
+/* error messages */
+.errorText {
+  /*color: red;*/
+}

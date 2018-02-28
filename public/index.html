@@ -15,20 +15,21 @@
   <br/>
     <a href="links.html">Other useful links</a>
 	<br/>
-	<a href="http://18.219.84.174/prac1/main.html">Test link</a>
+	<a href="http://18.218.116.239/prac1/main.html">Test link</a>
+  <p></p>
 
-<span id="error-message" class="error-text" hidden>   <!-- hidden on page first load -->
-     Please fix the following errors:</span>
+  <!-- Error messages for form validation -->
+  <span id="error-message" class="error-text" hidden>Please fix the following errors:</span>
+  <ul>
+    <li id="name-length" class="error-text" hidden>
+      The username must be at least 3 characters long</li>
+    <li id="days-hours-minutes" class="error-text" hidden>
+      Valid range: Days (0-6), Hours (0-23), Minutes (0-59)</li>
+    <li id="available-chests" class="error-text" hidden>
+      Valid range for available chests: (0-4)</li>
+  </ul>
 
-<ul>
-<li id="name-length" class="error-text" hidden>
-    The username must be at least 3 characters long</li>
-<li id="days-hours-minutes" class="error-text" hidden>
-    Valid range: Days (0-6), Hours (0-23), Minutes (0-59)</li>
-<li id="chests" class="error-text" hidden>
-    Valid range (0-4)</li>
-</ul>
-
+  <!-- Send control to route handler handleForm -->
 	<form action="/handleForm" method="post">
     <div id="frame">
       <div id="login">

@@ -76,7 +76,7 @@ function isInRange(value, min, max) {
   }
 }
 
-$("button[name='submit']").click(function() {
+$("input[name='submit']").click(function() {
   var isValid = true;
 
   if($("input[name='username']").val().length < 3) {

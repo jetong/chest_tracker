@@ -1,11 +1,10 @@
 // Todo: 
-// Send data to mongoDB.  consider using cookies
-// Write backend script to update mongo, use GO?
+// Write backend script to update mongo.
 // Write frontend javascript to query mongo
 // Add list of champions for which chests have already been earned
 
 // Check:
-// Validate user input
+// Sanitize user input
 // Saving to db overwrites existing data
 // Vertically align div in css
 // Limit RIOT api calls

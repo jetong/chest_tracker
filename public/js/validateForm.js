@@ -1,4 +1,6 @@
 $("input[name='username']").change(function() {
+  setTimeout(check, 250);		// delay error message
+  function check() {
   var usernameField = $("input[name='username']");
   var username = usernameField.val();
   if(username.length < 3) {
@@ -8,6 +10,7 @@ $("input[name='username']").change(function() {
   } else {
     $("#name-length").hide();
     $("#error-message").hide();
+  }
   }
 });
 
@@ -67,5 +70,32 @@ function isInRange(value, min, max) {
   }
 }
 
-function validateForm() {
-}
+$("button[name='submit']").click(function() {
+  var isValid = true;
+
+  if($("input[name='username']").val().length < 3) {
+    isValid = false;
+  }
+  var days = parseInt($("input[name='days']").val());
+  if(!isInRange(days,0,6)) {
+    isValid = false;
+  }
+  var hours = parseInt($("input[name='hours']").val());
+  if(!isInRange(hours,0,23)) {
+    isValid = false;
+  }
+  var minutes = parseInt($("input[name='minutes']").val());
+  if(!isInRange(minutes,0,59)) {
+    isValid = false;
+  }
+  var availableChests = parseInt($("input[name='availableChests']").val());
+  if(!isInRange(availableChests,0,4)) {
+    isValid = false;
+  }
+
+  if(isValid) {
+    return true;
+  } else {
+    return false;
+  }
+});

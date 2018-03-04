@@ -1,16 +1,22 @@
+$("input[name='username']").keyup(function() {
+  var regex = /[^a-z0-9]/gi;
+  var usernameField = $("input[name='username']");
+  usernameField.val(usernameField.val().replace(regex, ""));
+});
+
 $("input[name='username']").change(function() {
   setTimeout(check, 250);		// delay error message
   function check() {
-  var usernameField = $("input[name='username']");
-  var username = usernameField.val();
-  if(username.length < 3) {
-    $(this).focus();
-    $("#name-length").show();
-    $("#error-message").show();
-  } else {
-    $("#name-length").hide();
-    $("#error-message").hide();
-  }
+    var usernameField = $("input[name='username']");
+    var username = usernameField.val();
+    if(username.length < 3) {
+      $(this).focus();
+      $("#name-length").show();
+      $("#error-message").show();
+    } else {
+      $("#name-length").hide();
+      $("#error-message").hide();
+    }
   }
 });
 

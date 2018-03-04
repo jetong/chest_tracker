@@ -1,12 +1,9 @@
 // Todo: 
 // Write backend script to update mongo.
-// Write frontend javascript to query mongo
-// Add list of champions for which chests have already been earned
-
-// Check:
-// Sanitize user input
+// Write frontend javascript to query mongo, enable querying multiple usernames
+// For each username, add list of champions for which chests have already been earned
 // Saving to db overwrites existing data
-// Vertically align div in css
+// Improve err msg display format
 // Limit RIOT api calls
 
 // 3rd party dependencies

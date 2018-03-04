@@ -1,9 +1,18 @@
+// restrict username to alpha-numberic characters
 $("input[name='username']").keyup(function() {
   var regex = /[^a-z0-9]/gi;
   var usernameField = $("input[name='username']");
   usernameField.val(usernameField.val().replace(regex, ""));
 });
 
+// restrict days field to numbers
+$("input[name='days']").keyup(function() {
+  var regex = /[^0-9]/g;
+  var daysField = $("input[name='days']");
+  daysField.val(daysField.val().replace(regex, ""));
+});
+
+// handle err msg for username field
 $("input[name='username']").change(function() {
   setTimeout(check, 250);		// delay error message
   function check() {
@@ -20,6 +29,7 @@ $("input[name='username']").change(function() {
   }
 });
 
+// handle err msg for days field
 $("input[name='days']").change(function() {
   var days = parseInt($("input[name='days']").val());
   if(!isInRange(days,0,6)) {
@@ -32,6 +42,7 @@ $("input[name='days']").change(function() {
   }
 });
 
+// handle err msg for hours field
 $("input[name='hours']").change(function() {
   var hours = parseInt($("input[name='hours']").val());
   if(!isInRange(hours,0,23)) {
@@ -44,6 +55,7 @@ $("input[name='hours']").change(function() {
   }
 });
 
+// handle err msg for minutes field
 $("input[name='minutes']").change(function() {
   var minutes = parseInt($("input[name='minutes']").val());
   if(!isInRange(minutes,0,59)) {
@@ -56,6 +68,7 @@ $("input[name='minutes']").change(function() {
   }
 });
 
+// handle err msg for availableChests field
 $("input[name='availableChests']").change(function() {
   var availableChests = parseInt($("input[name='availableChests']").val());
   if(!isInRange(availableChests,0,4)) {
@@ -76,6 +89,7 @@ function isInRange(value, min, max) {
   }
 }
 
+// got to handleForm route for processing only if all fields are valid
 $("input[name='submit']").click(function() {
   var isValid = true;
 

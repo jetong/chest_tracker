@@ -12,6 +12,27 @@ $("input[name='days']").keyup(function() {
   daysField.val(daysField.val().replace(regex, ""));
 });
 
+// restrict hours field to numbers
+$("input[name='hours']").keyup(function() {
+  var regex = /[^0-9]/g;
+  var hoursField = $("input[name='hours']");
+  hoursField.val(hoursField.val().replace(regex, ""));
+});
+
+// restrict minutes field to numbers
+$("input[name='minutes']").keyup(function() {
+  var regex = /[^0-9]/g;
+  var minutesField = $("input[name='minutes']");
+  minutesField.val(minutesField.val().replace(regex, ""));
+});
+
+// restrict availableChests field to numbers
+$("input[name='availableChests']").keyup(function() {
+  var regex = /[^0-9]/g;
+  var availableChestsField = $("input[name='availableChests']");
+  availableChestsField.val(availableChestsField.val().replace(regex, ""));
+});
+
 // handle err msg for username field
 $("input[name='username']").change(function() {
   setTimeout(check, 250);		// delay error message

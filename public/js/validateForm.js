@@ -35,14 +35,14 @@ $("input[name='availableChests']").keyup(function() {
 
 // handle err msg for username field
 $("input[name='username']").change(function() {
-  setTimeout(check, 250);		// delay error message
+  setTimeout(check, 200);		// delay error message
   function check() {
     var usernameField = $("input[name='username']");
     var username = usernameField.val();
     if(username.length < 3) {
-      $(this).focus();
       $("#name-length").show();
       $("#error-message").show();
+      usernameField.focus().select();
     } else {
       $("#name-length").hide();
       $("#error-message").hide();
@@ -54,7 +54,7 @@ $("input[name='username']").change(function() {
 $("input[name='days']").change(function() {
   var days = parseInt($("input[name='days']").val());
   if(!isInRange(days,0,6)) {
-    $(this).focus();
+    $(this).focus().select();
     $("#days-hours-minutes").show();
     $("#error-message").show();
   } else {
@@ -67,7 +67,7 @@ $("input[name='days']").change(function() {
 $("input[name='hours']").change(function() {
   var hours = parseInt($("input[name='hours']").val());
   if(!isInRange(hours,0,23)) {
-    $(this).focus();
+    $(this).focus().select();
     $("#days-hours-minutes").show();
     $("#error-message").show();
   } else {
@@ -80,7 +80,7 @@ $("input[name='hours']").change(function() {
 $("input[name='minutes']").change(function() {
   var minutes = parseInt($("input[name='minutes']").val());
   if(!isInRange(minutes,0,59)) {
-    $(this).focus();
+    $(this).focus().select();
     $("#days-hours-minutes").show();
     $("#error-message").show();
   } else {
@@ -93,7 +93,7 @@ $("input[name='minutes']").change(function() {
 $("input[name='availableChests']").change(function() {
   var availableChests = parseInt($("input[name='availableChests']").val());
   if(!isInRange(availableChests,0,4)) {
-    $(this).focus();
+    $(this).focus().select();
     $("#available-chests").show();
     $("#error-message").show();
   } else {

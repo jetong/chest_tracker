@@ -115,23 +115,42 @@ $("input[name='submit']").click(function() {
   var isValid = true;
 
   if($("input[name='username']").val().length < 3) {
+    $("input[name='username']").css("border-color", "red");
     isValid = false;
+  } else {
+    $("input[name='username']").css("border-color", "white");
   }
+    
   var days = parseInt($("input[name='days']").val());
   if(!isInRange(days,0,6)) {
+    $("input[name='days']").css("border-color", "red");
     isValid = false;
+  } else {
+    $("input[name='days']").css("border-color", "white");
   }
+
   var hours = parseInt($("input[name='hours']").val());
   if(!isInRange(hours,0,23)) {
+    $("input[name='hours']").css("border-color", "red");
     isValid = false;
+  } else {
+    $("input[name='hours']").css("border-color", "white");
   }
+
   var minutes = parseInt($("input[name='minutes']").val());
   if(!isInRange(minutes,0,59)) {
+    $("input[name='minutes']").css("border-color", "red");
     isValid = false;
+  } else {
+    $("input[name='minutes']").css("border-color", "white");
   }
+
   var availableChests = parseInt($("input[name='availableChests']").val());
   if(!isInRange(availableChests,0,4)) {
+    $("input[name='availableChests']").css("border-color", "red");
     isValid = false;
+  } else {
+    $("input[name='availableChests']").css("border-color", "white");
   }
 
   if(isValid) {

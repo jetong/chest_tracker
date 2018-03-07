@@ -71,15 +71,39 @@ app.use('/handleForm', (req, res) => {
 
 			console.log(JSON.stringify(newUser));
 
-      newUser.save((err) => {
+      User.findOne( { username: username }, (err, user) => {
         if(err) {
-          res.type('html').status(500);
-          res.send('Error: ' + err);
+          res.type("html").status(500);
+          res.send("Error: " + err);
+        } else if (!user) {
+          // save new user into database
+          newUser.save((err) => {
+            if(err) {
+              res.type('html').status(500);
+              res.send('Error: ' + err);
+            } else {
+              res.render('userInfo', {user: newUser});
+              res.end();
+            }
+          });
         } else {
-          res.render('userInfo', {user: newUser});
-          res.end();
+          user.days = newUser.days;
+          user.hours = newUser.hours;
+          user.minutes = newUser.minutes;
+          user.timestamp = newUser.timestamp;
+          user.totalChests = newUser.totalChests;
+          user.availableChests = newUser.availableChests;
+          user.save((err) => {
+            if(err) {
+              res.type('html').status(500);
+              res.send('Error: ' + err);
+            } else {
+              res.render('userInfo', {user: newUser});
+              res.end();
+            }
+          });
         }
-      });
+      }); // findOne()
 
     }); // getJSON()
   } // getChests()

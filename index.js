@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Routing
 app.use('/', express.static('public'));
 app.use('/handleForm', (req, res) => {
-  var username = req.body.username;
+  var username = req.body.username.toLowerCase();
   var days = req.body.days;
   var hours = req.body.hours;
   var minutes = req.body.minutes;

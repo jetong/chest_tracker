@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Routing
-app.use('/', express.static('public'));
+app.use('/public', express.static('public'));
 app.use('/handleForm', (req, res) => {
   var username = req.body.username.toLowerCase();
   var days = req.body.days;
@@ -40,7 +40,7 @@ app.use('/handleForm', (req, res) => {
     var url_id = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + username + "/?api_key=" + key;
     getJSON(url_id, function(error, response) {
         var id = String(response.id);
-  			getChests(id,key);
+  	getChests(id,key);
     });
   }
 

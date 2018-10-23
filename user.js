@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/lol');
+const mongoose = require('mongoose');
+var uri = "mongodb+srv://admin:admin@cluster0-ue1al.mongodb.net/test?retryWrites=true";
+mongoose.connect(uri, { useNewUrlParser: true });
 
 var Schema = mongoose.Schema;
 var userSchema = new Schema({

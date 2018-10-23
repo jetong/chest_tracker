@@ -1,5 +1,5 @@
 body {
-  background-image:url('/img/akali_vs_baron.jpg');
+  background-image:url('../img/akali_vs_baron.jpg');
   background-repeat:no-repeat;
   background-size:cover;
   color:#ffe500;
@@ -14,7 +14,7 @@ a:visited {
 
 #frame {
   border: 30px solid;
-  border-image:url('/img/frame.png') 36 32 20 32 round;
+  border-image:url('../img/frame.png') 36 32 20 32 round;
   /*border-image-source: url(frame.png);
   border-image-slice:36 32 21 32;
   border-image-repeat:round;

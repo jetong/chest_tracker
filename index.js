@@ -37,7 +37,7 @@ app.use('/handleForm', (req, res) => {
 
   // RIOT api call to retrieve id by username
   function getId(key) {
-    var url_id = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + username + "/?api_key=" + key;
+    var url_id = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + username + "/?api_key=" + key;
     getJSON(url_id, function(error, response) {
         var id = String(response.id);
   	getChests(id,key);
@@ -46,7 +46,7 @@ app.use('/handleForm', (req, res) => {
 
   // RIOT api call to retreive champion details by id
   function getChests(id,key) {
-    var url_chests = "https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/" + 
+    var url_chests = "https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/" + 
       id + "?api_key=" + key;
     getJSON(url_chests, function(error, champs) {
       // count the number of champions whose chestGranted is true
